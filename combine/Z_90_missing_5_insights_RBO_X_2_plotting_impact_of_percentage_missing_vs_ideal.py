@@ -22,7 +22,7 @@ output_plot = 'RBO_90_all_percentage_missing_attributes_vs_ideal'
 k = 10
 # ===============================================================
 # IDEAL VS STANDARD
-df = pd.read_csv(input_file1, names=['percentage','k','RBO','Jaccard'])
+df = pd.read_csv(input_file1, names=['percentage','k','RBO','Jaccard','Cumulative_distance'])
 
 dfj100 = df[(df['k'] == k) & (df['percentage'] == 0)]
 dfj100 = dfj100['RBO']
@@ -98,7 +98,7 @@ dfj190.insert(1,'RBO')
 
 
 
-df = pd.read_csv(input_file2, names=['percentage','k','RBO','Jaccard'])
+df = pd.read_csv(input_file2, names=['percentage','k','RBO','Jaccard','Cumulative_distance'])
 
 
 dfj200 = df[(df['k'] == k) & (df['percentage'] == 0)]
@@ -174,7 +174,7 @@ dfj290.insert(0,90)
 dfj290.insert(1,'RBO')
 
 
-df = pd.read_csv(input_file3, names=['percentage','k','RBO','Jaccard'])
+df = pd.read_csv(input_file3, names=['percentage','k','RBO','Jaccard','Cumulative_distance'])
 
 
 
@@ -252,7 +252,7 @@ dfj390.insert(1,'RBO')
 
 
 
-df = pd.read_csv(input_file4, names=['percentage','k','RBO','Jaccard'])
+df = pd.read_csv(input_file4, names=['percentage','k','RBO','Jaccard','Cumulative_distance'])
 
 
 
@@ -329,7 +329,7 @@ dfj490.insert(0,90)
 dfj490.insert(1,'RBO')
 
 
-df = pd.read_csv(input_file5, names=['percentage','k','RBO','Jaccard'])
+df = pd.read_csv(input_file5, names=['percentage','k','RBO','Jaccard','Cumulative_distance'])
 
 
 dfj500 = df[(df['k'] == k) & (df['percentage'] == 0)]
@@ -356,10 +356,10 @@ dfj560 = dfj560['RBO']
 dfj570 = df[(df['k'] == k) & (df['percentage'] == 70)]
 dfj570 = dfj570['RBO']
 
-dfj580 = df[(df['k'] == k) & (df['percentage'] == 90)]
+dfj580 = df[(df['k'] == k) & (df['percentage'] == 80)]
 dfj580 = dfj580['RBO']
 
-dfj590 = df[(df['k'] == k) & (df['percentage'] == 80)]
+dfj590 = df[(df['k'] == k) & (df['percentage'] == 90)]
 dfj590 = dfj590['RBO']
 
 
@@ -413,9 +413,9 @@ df2 = pd.DataFrame([dfj200, dfj210, dfj220, dfj230, dfj240, dfj250, dfj260, dfj2
 df2.columns = ['k','measurement','mean','lb','ub']
 df3 = pd.DataFrame([dfj300, dfj310, dfj320, dfj330, dfj340, dfj350, dfj360, dfj370, dfj380, dfj390])
 df3.columns = ['k','measurement','mean','lb','ub']
-df4 = pd.DataFrame([dfj400, dfj410, dfj420, dfj430, dfj440, dfj450, dfj460, dfj470, dfj480, dfj490])
+df4 = pd.DataFrame([dfj400, dfj410, dfj420, dfj430, dfj440, dfj450, dfj460, dfj470, dfj490, dfj480])
 df4.columns = ['k','measurement','mean','lb','ub']
-df5 = pd.DataFrame([dfj500, dfj510, dfj520, dfj530, dfj540, dfj550, dfj560, dfj570, dfj580, dfj590])
+df5 = pd.DataFrame([dfj500, dfj510, dfj520, dfj530, dfj540, dfj550, dfj560, dfj570, dfj590, dfj580])
 df5.columns = ['k','measurement','mean','lb','ub']
 
 

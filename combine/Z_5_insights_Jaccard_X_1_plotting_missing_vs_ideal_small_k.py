@@ -21,24 +21,11 @@ output_plot = 'jaccard_50_missing_attributes_vs_ideal_k_small'
 # ===============================================================
 # IDEAL VS STANDARD
 
-df1 = pd.read_csv(input_file1, names=['percentage','k','RBO','Jaccard'])
+df1 = pd.read_csv(input_file1, names=['percentage','k','RBO','Jaccard','Cumulative_distance'])
 
 percent = 50
 #[5, 10, 15, 20, 100, 256]
 
-
-
-kj11 = df1[(df1['k'] == 1) & (df1['percentage'] == percent)]
-kj11 = kj11['Jaccard']
-
-kj12 = df1[(df1['k'] == 2) & (df1['percentage'] == percent)]
-kj12 = kj12['Jaccard']
-
-kj13 = df1[(df1['k'] == 3) & (df1['percentage'] == percent)]
-kj13 = kj13['Jaccard']
-
-kj14 = df1[(df1['k'] == 4) & (df1['percentage'] == percent)]
-kj14 = kj14['Jaccard'] 
 
 kj15 = df1[(df1['k'] == 5) & (df1['percentage'] == percent)]
 kj15 = kj15['Jaccard']
@@ -83,28 +70,13 @@ kj150 = kj150['Jaccard']
 kj160 = df1[(df1['k'] == 60) & (df1['percentage'] == percent)]
 kj160 = kj160['Jaccard']
 
-kj166 = df1[(df1['k'] == 66) & (df1['percentage'] == percent)]
-kj166 = kj166['Jaccard']
+kj170 = df1[(df1['k'] == 70) & (df1['percentage'] == percent)]
+kj170 = kj170['Jaccard']
 
-kj1192 = df1[(df1['k'] == 192) & (df1['percentage'] == percent)]
-kj1192 = kj1192['Jaccard']
+kj1144 = df1[(df1['k'] == 144) & (df1['percentage'] == percent)]
+kj1144 = kj1144['Jaccard']
 
 
-kj11 = list(mean_confidence_interval(kj11))
-kj11.insert(0,1)
-kj11.insert(1,'Jaccard')
-
-kj12 = list(mean_confidence_interval(kj12))
-kj12.insert(0,2)
-kj12.insert(1,'Jaccard')
-
-kj13 = list(mean_confidence_interval(kj13))
-kj13.insert(0,3)
-kj13.insert(1,'Jaccard')
-
-kj14 = list(mean_confidence_interval(kj14))
-kj14.insert(0,4)
-kj14.insert(1,'Jaccard')
 
 kj15 = list(mean_confidence_interval(kj15))
 kj15.insert(0,5)
@@ -162,33 +134,22 @@ kj160 = list(mean_confidence_interval(kj160))
 kj160.insert(0,60)
 kj160.insert(1,'Jaccard')
 
-kj166 = list(mean_confidence_interval(kj166))
-kj166.insert(0,66)
-kj166.insert(1,'Jaccard')
+kj170 = list(mean_confidence_interval(kj170))
+kj170.insert(0,70)
+kj170.insert(1,'Jaccard')
 
-kj1192 = list(mean_confidence_interval(kj1192))
-kj1192.insert(0,192)
-kj1192.insert(1,'Jaccard')
+kj1144 = list(mean_confidence_interval(kj1144))
+kj1144.insert(0,144)
+kj1144.insert(1,'Jaccard')
 
-df1 = pd.DataFrame([kj15,kj110, kj113, kj120,kj150])
+df1 = pd.DataFrame([kj15,kj110, kj113, kj120,kj150,kj170])
 df1.columns = ['k','measurement','mean','lb','ub']
 
 
-df2 = pd.read_csv(input_file2, names=['percentage','k','RBO','Jaccard'])
+df2 = pd.read_csv(input_file2, names=['percentage','k','RBO','Jaccard','Cumulative_distance'])
 
 
 
-kj21 = df2[(df2['k'] == 1) & (df2['percentage'] == percent)]
-kj21 = kj21['Jaccard']
-
-kj22 = df2[(df2['k'] == 2) & (df2['percentage'] == percent)]
-kj22 = kj22['Jaccard']
-
-kj23 = df2[(df2['k'] == 3) & (df2['percentage'] == percent)]
-kj23 = kj23['Jaccard']
-
-kj24 = df2[(df2['k'] == 4) & (df2['percentage'] == percent)]
-kj24 = kj24['Jaccard'] 
 
 kj25 = df2[(df2['k'] == 5) & (df2['percentage'] == percent)]
 kj25 = kj25['Jaccard']
@@ -232,28 +193,12 @@ kj250 = kj250['Jaccard']
 kj260 = df2[(df2['k'] == 60) & (df2['percentage'] == percent)]
 kj260 = kj260['Jaccard']
 
-kj266 = df2[(df2['k'] == 66) & (df2['percentage'] == percent)]
-kj266 = kj266['Jaccard']
+kj270 = df2[(df2['k'] == 70) & (df2['percentage'] == percent)]
+kj270 = kj270['Jaccard']
 
-kj2192 = df2[(df2['k'] == 192) & (df2['percentage'] == percent)]
-kj2192 = kj2192['Jaccard']
+kj2144 = df2[(df2['k'] == 144) & (df2['percentage'] == percent)]
+kj2144 = kj2144['Jaccard']
 
-
-kj21 = list(mean_confidence_interval(kj21))
-kj21.insert(0,1)
-kj21.insert(1,'Jaccard')
-
-kj22 = list(mean_confidence_interval(kj22))
-kj22.insert(0,2)
-kj22.insert(1,'Jaccard')
-
-kj23 = list(mean_confidence_interval(kj23))
-kj23.insert(0,3)
-kj23.insert(1,'Jaccard')
-
-kj24 = list(mean_confidence_interval(kj24))
-kj24.insert(0,4)
-kj24.insert(1,'Jaccard')
 
 kj25 = list(mean_confidence_interval(kj25))
 kj25.insert(0,5)
@@ -311,33 +256,22 @@ kj260 = list(mean_confidence_interval(kj260))
 kj260.insert(0,60)
 kj260.insert(1,'Jaccard')
 
-kj266 = list(mean_confidence_interval(kj266))
-kj266.insert(0,66)
-kj266.insert(1,'Jaccard')
+kj270 = list(mean_confidence_interval(kj270))
+kj270.insert(0,70)
+kj270.insert(1,'Jaccard')
 
-kj2192 = list(mean_confidence_interval(kj2192))
-kj2192.insert(0,192)
-kj2192.insert(1,'Jaccard')
+kj2144 = list(mean_confidence_interval(kj2144))
+kj2144.insert(0,144)
+kj2144.insert(1,'Jaccard')
 
-df2 = pd.DataFrame([kj25, kj210,  kj213, kj220, kj250])
+df2 = pd.DataFrame([kj25, kj210,  kj213, kj220, kj250,kj270])
 df2.columns = ['k','measurement','mean','lb','ub']
 
 
-df3 = pd.read_csv(input_file3, names=['percentage','k','RBO','Jaccard'])
+df3 = pd.read_csv(input_file3, names=['percentage','k','RBO','Jaccard','Cumulative_distance'])
 
 
 
-kj31 = df3[(df3['k'] == 1) & (df3['percentage'] == percent)]
-kj31 = kj31['Jaccard']
-
-kj32 = df3[(df3['k'] == 2) & (df3['percentage'] == percent)]
-kj32 = kj32['Jaccard']
-
-kj33 = df3[(df3['k'] == 3) & (df3['percentage'] == percent)]
-kj33 = kj33['Jaccard']
-
-kj34 = df3[(df3['k'] == 4) & (df3['percentage'] == percent)]
-kj34 = kj34['Jaccard'] 
 
 kj35 = df3[(df3['k'] == 5) & (df3['percentage'] == percent)]
 kj35 = kj35['Jaccard']
@@ -381,28 +315,13 @@ kj350 = kj350['Jaccard']
 kj360 = df3[(df3['k'] == 60) & (df3['percentage'] == percent)]
 kj360 = kj360['Jaccard']
 
-kj366 = df3[(df3['k'] == 66) & (df3['percentage'] == percent)]
-kj366 = kj366['Jaccard']
+kj370 = df3[(df3['k'] == 70) & (df3['percentage'] == percent)]
+kj370 = kj370['Jaccard']
 
-kj3192 = df3[(df3['k'] == 192) & (df3['percentage'] == percent)]
-kj3192 = kj3192['Jaccard']
+kj3144 = df3[(df3['k'] == 144) & (df3['percentage'] == percent)]
+kj3144 = kj3144['Jaccard']
 
 
-kj31 = list(mean_confidence_interval(kj31))
-kj31.insert(0,1)
-kj31.insert(1,'Jaccard')
-
-kj32 = list(mean_confidence_interval(kj32))
-kj32.insert(0,2)
-kj32.insert(1,'Jaccard')
-
-kj33 = list(mean_confidence_interval(kj33))
-kj33.insert(0,3)
-kj33.insert(1,'Jaccard')
-
-kj34 = list(mean_confidence_interval(kj34))
-kj34.insert(0,4)
-kj34.insert(1,'Jaccard')
 
 kj35 = list(mean_confidence_interval(kj35))
 kj35.insert(0,5)
@@ -460,33 +379,21 @@ kj360 = list(mean_confidence_interval(kj360))
 kj360.insert(0,60)
 kj360.insert(1,'Jaccard')
 
-kj366 = list(mean_confidence_interval(kj366))
-kj366.insert(0,66)
-kj366.insert(1,'Jaccard')
+kj370 = list(mean_confidence_interval(kj370))
+kj370.insert(0,70)
+kj370.insert(1,'Jaccard')
 
-kj3192 = list(mean_confidence_interval(kj3192))
-kj3192.insert(0,192)
-kj3192.insert(1,'Jaccard')
+kj3144 = list(mean_confidence_interval(kj3144))
+kj3144.insert(0,144)
+kj3144.insert(1,'Jaccard')
 
-df3 = pd.DataFrame([kj35, kj310,kj313, kj320, kj350])
+df3 = pd.DataFrame([kj35, kj310,kj313, kj320, kj350,kj370])
 df3.columns = ['k','measurement','mean','lb','ub']
 
 
-df4 = pd.read_csv(input_file4, names=['percentage','k','RBO','Jaccard'])
+df4 = pd.read_csv(input_file4, names=['percentage','k','RBO','Jaccard','Cumulative_distance'])
 
 
-
-kj41 = df4[(df4['k'] == 1) & (df4['percentage'] == percent)]
-kj41 = kj41['Jaccard']
-
-kj42 = df4[(df4['k'] == 2) & (df4['percentage'] == percent)]
-kj42 = kj42['Jaccard']
-
-kj43 = df4[(df4['k'] == 3) & (df4['percentage'] == percent)]
-kj43 = kj43['Jaccard']
-
-kj44 = df4[(df4['k'] == 4) & (df4['percentage'] == percent)]
-kj44 = kj44['Jaccard'] 
 
 kj45 = df4[(df4['k'] == 5) & (df4['percentage'] == percent)]
 kj45 = kj45['Jaccard']
@@ -530,28 +437,12 @@ kj450 = kj450['Jaccard']
 kj460 = df4[(df4['k'] == 60) & (df4['percentage'] == percent)]
 kj460 = kj460['Jaccard']
 
-kj466 = df4[(df4['k'] == 66) & (df4['percentage'] == percent)]
-kj466 = kj466['Jaccard']
+kj470 = df4[(df4['k'] == 70) & (df4['percentage'] == percent)]
+kj470 = kj470['Jaccard']
 
-kj4192 = df4[(df4['k'] == 192) & (df4['percentage'] == percent)]
-kj4192 = kj4192['Jaccard']
+kj4144 = df4[(df4['k'] == 144) & (df4['percentage'] == percent)]
+kj4144 = kj4144['Jaccard']
 
-
-kj41 = list(mean_confidence_interval(kj41))
-kj41.insert(0,1)
-kj41.insert(1,'Jaccard')
-
-kj42 = list(mean_confidence_interval(kj42))
-kj42.insert(0,2)
-kj42.insert(1,'Jaccard')
-
-kj43 = list(mean_confidence_interval(kj43))
-kj43.insert(0,3)
-kj43.insert(1,'Jaccard')
-
-kj44 = list(mean_confidence_interval(kj44))
-kj44.insert(0,4)
-kj44.insert(1,'Jaccard')
 
 kj45 = list(mean_confidence_interval(kj45))
 kj45.insert(0,5)
@@ -609,32 +500,21 @@ kj460 = list(mean_confidence_interval(kj460))
 kj460.insert(0,60)
 kj460.insert(1,'Jaccard')
 
-kj466 = list(mean_confidence_interval(kj466))
-kj466.insert(0,66)
-kj466.insert(1,'Jaccard')
+kj470 = list(mean_confidence_interval(kj470))
+kj470.insert(0,70)
+kj470.insert(1,'Jaccard')
 
-kj4192 = list(mean_confidence_interval(kj4192))
-kj4192.insert(0,192)
-kj4192.insert(1,'Jaccard')
+kj4144 = list(mean_confidence_interval(kj4144))
+kj4144.insert(0,144)
+kj4144.insert(1,'Jaccard')
 
-df4 = pd.DataFrame([kj45, kj410, kj413, kj420, kj450])
+df4 = pd.DataFrame([kj45, kj410, kj413, kj420, kj450,kj470])
 df4.columns = ['k','measurement','mean','lb','ub']
 
 
-df5 = pd.read_csv(input_file5, names=['percentage','k','RBO','Jaccard'])
+df5 = pd.read_csv(input_file5, names=['percentage','k','RBO','Jaccard','Cumulative_distance'])
 
 
-kj51 = df5[(df5['k'] == 1) & (df5['percentage'] == percent)]
-kj51 = kj51['Jaccard']
-
-kj52 = df5[(df5['k'] == 2) & (df5['percentage'] == percent)]
-kj52 = kj52['Jaccard']
-
-kj53 = df5[(df5['k'] == 3) & (df5['percentage'] == percent)]
-kj53 = kj53['Jaccard']
-
-kj54 = df5[(df5['k'] == 4) & (df5['percentage'] == percent)]
-kj54 = kj54['Jaccard'] 
 
 kj55 = df5[(df5['k'] == 5) & (df5['percentage'] == percent)]
 kj55 = kj55['Jaccard']
@@ -678,28 +558,13 @@ kj550 = kj550['Jaccard']
 kj560 = df5[(df5['k'] == 60) & (df5['percentage'] == percent)]
 kj560 = kj560['Jaccard']
 
-kj566 = df5[(df5['k'] == 66) & (df5['percentage'] == percent)]
-kj566 = kj566['Jaccard']
+kj570 = df5[(df5['k'] == 70) & (df5['percentage'] == percent)]
+kj570 = kj570['Jaccard']
 
-kj5192 = df5[(df5['k'] == 192) & (df5['percentage'] == percent)]
-kj5192 = kj5192['Jaccard']
+kj5144 = df5[(df5['k'] == 144) & (df5['percentage'] == percent)]
+kj5144 = kj5144['Jaccard']
 
 
-kj51 = list(mean_confidence_interval(kj51))
-kj51.insert(0,1)
-kj51.insert(1,'Jaccard')
-
-kj52 = list(mean_confidence_interval(kj52))
-kj52.insert(0,2)
-kj52.insert(1,'Jaccard')
-
-kj53 = list(mean_confidence_interval(kj53))
-kj53.insert(0,3)
-kj53.insert(1,'Jaccard')
-
-kj54 = list(mean_confidence_interval(kj54))
-kj54.insert(0,4)
-kj54.insert(1,'Jaccard')
 
 kj55 = list(mean_confidence_interval(kj55))
 kj55.insert(0,5)
@@ -757,15 +622,15 @@ kj560 = list(mean_confidence_interval(kj560))
 kj560.insert(0,60)
 kj560.insert(1,'Jaccard')
 
-kj566 = list(mean_confidence_interval(kj566))
-kj566.insert(0,66)
-kj566.insert(1,'Jaccard')
+kj570 = list(mean_confidence_interval(kj570))
+kj570.insert(0,70)
+kj570.insert(1,'Jaccard')
 
-kj5192 = list(mean_confidence_interval(kj5192))
-kj5192.insert(0,192)
-kj5192.insert(1,'Jaccard')
+kj5144 = list(mean_confidence_interval(kj5144))
+kj5144.insert(0,144)
+kj5144.insert(1,'Jaccard')
 
-df5 = pd.DataFrame([kj55, kj510, kj513, kj520, kj550])
+df5 = pd.DataFrame([kj55, kj510, kj513, kj520, kj550,kj570])
 df5.columns = ['k','measurement','mean','lb','ub']
 
 
@@ -847,7 +712,7 @@ ax.fill_between(t, lb5, ub5, color = '#87888a', alpha = 0.4)
 ax.set_title("Impact of k on Effectiveness, 95% CI, 50 % missing")
 ax.set_xlabel("k")
 ax.set_ylabel("Effectiveness Jaccard- Missing to Ideal")
-x = [5,10,13,20,50]
+x = [5,10,13,20,50,70]
 xi = list(range(len(x)))
 plt.xticks(xi, x)
 # Display legend
